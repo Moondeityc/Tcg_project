@@ -1,0 +1,22 @@
+DROP TABLE users;
+DROP TABLE cards;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE cards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name_en VARCHAR(255) NOT NULL,
+    name_pt VARCHAR(255) NULL,
+    card_game ENUM('magic', 'pokemon', 'yugioh') NOT NULL,
+    edition_id VARCHAR(50) NOT NULL,
+    edition_name VARCHAR(255) NOT NULL,
+    image VARCHAR(255) NULL,
+    rarity VARCHAR(100) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
